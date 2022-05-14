@@ -1,0 +1,80 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:fragment="header-css">
+	<!-- this is header-css -->
+	<link rel="stylesheet" type="text/css"
+		th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+
+	<link rel="stylesheet" th:href="@{/css/header.css}" />
+</div>
+</head>
+<body>
+	<div th:fragment="header">
+		<!-- this is header -->
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/}">
+						<div th:text="#{project.name}"></div>
+					</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a th:href="@{/}">Home</a></li>
+					</ul>
+				</div>
+				<!-- 	<div>
+
+					<span th:text="#{lang.change}"></span>: 
+					<select id="locales">
+						<option value=""></option>
+						<option value="en" th:text="#{lang.eng}"></option>
+						<option value="fr" th:text="#{lang.fr}"></option>
+					</select>
+					
+				</div> 
+				 <div class="portlet light ">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="icon-globe"></i> <span
+								class="caption-subject bold uppercase"
+								th:text="#{home.page.change.header}"></span>
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<form role="form">
+							<div class="form-body">
+								<div class="form-group">
+									<label th:text="#{home.page.change.label}"></label>
+									<div class="input-group">
+										<span class="input-group-addon"> <i
+											class="fa fa-question"></i>
+										</span> <select id="languageSelect" class="form-control">
+											<option value="">SELECT</option>
+											<option value="en" th:text="#{home.page.change.lang.en}"></option>
+											<option value="fr" th:text="#{home.page.change.lang.fr}"></option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div> -->
+				
+				
+					<div class="form-group navbar-form navbar-left">
+						<label for="sel1">Select list:</label> <select
+							class="form-control" id="sel1">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+					</div>
+				
+			</div>
+		</nav>
+	</div>
+
+</body>
+</html>

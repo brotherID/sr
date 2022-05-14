@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8"></meta>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+<meta name="description" content=""></meta>
+<meta name="author" content=""></meta>
+
+	<div th:fragment="header-css">
+	
+		<link rel="stylesheet" type="text/css"
+			th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+	
+		<link rel="stylesheet" th:href="@{/css/header.css}" />
+	</div>
+	
+</head>
+
+<body>
+	<div th:fragment="header">
+		<!-- this is header -->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				
+				<div class="navbar-header">
+				
+					<a class="navbar-brand" th:href="@{/}"> <div th:text="#{header.page.project.name}"></div> </a>
+				
+				</div>
+				
+				<ul class="nav navbar-nav">
+					<li class="active"><a th:href="@{/}" ><span th:text="#{header.page.menu.home}"> </span></a></li>
+					
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<select class="form-control" id="languageSelect">
+								<option value="" th:utext="#{home.page.change.lang.default.choice.label}"></option>
+								<option th:value="#{home.page.change.lang.en.value}" th:utext="#{home.page.change.lang.en.label}"></option>
+								<option th:value="#{home.page.change.lang.fr.value}" th:utext="#{home.page.change.lang.fr.label}"></option>
+						</select>
+					</li>
+				</ul>
+				
+			</div>
+		</nav>
+	</div>
+
+</body>
+</html>
