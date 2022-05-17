@@ -28,10 +28,10 @@ public class RecruitementRequestServiceImpl implements RecruitementRequestServic
 	{
 		String uploadDirectory = System.getProperty("user.dir")+"/uploads";
 		new File(uploadDirectory).mkdir();
-		StringBuilder fileNames = new StringBuilder();
+		
 		for (MultipartFile file : files) {
 			  Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-			  fileNames.append(file.getOriginalFilename()+" ");
+			  
 			  try {
 				Files.write(fileNameAndPath, file.getBytes());
 			} catch (IOException e) {
@@ -50,7 +50,7 @@ public class RecruitementRequestServiceImpl implements RecruitementRequestServic
 	public RecruitementRequest addRecruitementRequest(RecruitementRequestDto recruitementRequestDto) {
 
 		recruitementRequestDto.setId(UUID.randomUUID().toString());
-		//uploadMailFiles(recruitementRequestDto.getMailFiles());
+		uploadMailFiles(recruitementRequestDto.getMailFiles());
 		RecruitementRequest recruitementRequest = new RecruitementRequest();
 	
         //mapper

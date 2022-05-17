@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.poc.sr.dto.RecruitementRequestDto;
 import com.poc.sr.service.recruitement.request.RecruitementRequestService;
@@ -33,7 +35,7 @@ public class RecruitementRequestController {
 	
 	
 	@PostMapping("/recruitement-request")
-	public String saveRecruitementRequest(HttpServletRequest req,Model model) {
+	public String saveRecruitementRequest( HttpServletRequest req, Model model,@RequestParam("files") MultipartFile[] files) {
 		
 		RecruitementRequestDto recruitementRequestDto = new RecruitementRequestDto();
 		
@@ -46,6 +48,7 @@ public class RecruitementRequestController {
 		   
 		
 		recruitementRequestDto.setIntitulePoste(intitulePoste);
+		recruitementRequestDto.setMailFiles(files);
 		
 		recruitementRequestService.addRecruitementRequest(recruitementRequestDto);
 		

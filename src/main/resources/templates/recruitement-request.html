@@ -39,7 +39,8 @@
 
 
 
-			<form action="recruitement-request" method="post">
+			<form action="recruitement-request" method="post"
+				enctype="multipart/form-data">
 
 
 
@@ -49,26 +50,34 @@
 					</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="JobTitleInput"
-							th:placeholder="#{job.title.input}" name="JobTitleInput"  required="required">
+							th:placeholder="#{job.title.input}" name="JobTitleInput"
+							required="required">
 					</div>
 
 
-					<button type="submit" class="btn btn-primary">Submit</button>
+
 
 
 				</div>
 
 				<div>
 
-                  <!-- pour tester le display none /block -->
-					<button type="submit" class="btn btn-primary" id="uploadMail">uploader
-						mail de demande</button>
-						
+					<!-- pour tester le display none /block -->
+					<!-- <button type="submit" class="btn btn-primary" id="uploadMail">uploader
+						mail de demande</button> -->
+
 					<!-- 	pour l'upload des fichiers -->
-						
+
 					<input type="file" name="files" multiple class="btn btn-primary">
 
 				</div>
+
+				<div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+
+				</div>
+
+
 			</form>
 
 
