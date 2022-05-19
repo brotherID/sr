@@ -1,11 +1,16 @@
 package com.poc.sr.config;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,16 +23,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		/*
-		 * auth.userDetailsService(new UserDetailsService() {
-		 * 
-		 * @Override public UserDetails loadUserByUsername(String username) throws
-		 * UsernameNotFoundException {
-		 * 
-		 * return new User("user", "password", null); }
-		 * 
-		 * });
-		 */
+		
+		  auth.userDetailsService(new UserDetailsService() {
+		  
+		  @Override public UserDetails loadUserByUsername(String username) throws
+		  UsernameNotFoundException {
+		  Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		  authorities.add(new SimpleGrantedAuthority("user"));
+		  
+		  return new User("user", "{noop}password", authorities); }
+		  
+		  });
+		 
 		  
 
 
@@ -42,9 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 		http.authorizeRequests().anyRequest().permitAll()
-		/*
-		 * .and() .formLogin()
-		 */;
+		.and() .formLogin()
+		 ;
 	}
 
 	
