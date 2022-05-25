@@ -18,6 +18,7 @@ import lombok.AllArgsConstructor;
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private AuthenticationService authenticationService;

@@ -2,6 +2,7 @@ package com.poc.sr.web.recruitement.request;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,7 @@ public class RecruitementRequestController {
 	
 	
 	@GetMapping("/recruitement-request")
+	@PreAuthorize("hasAuthority('ADMIN')")
     public String dislayForm() {
 		
         return "recruitement-request";
@@ -35,6 +37,7 @@ public class RecruitementRequestController {
 	
 	
 	@PostMapping("/recruitement-request")
+	
 	public String saveRecruitementRequest( HttpServletRequest req, Model model,@RequestParam("files") MultipartFile[] files) {
 		
 		RecruitementRequestDto recruitementRequestDto = new RecruitementRequestDto();
