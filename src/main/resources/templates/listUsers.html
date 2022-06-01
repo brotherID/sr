@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+	layout:decorator="layout">
+<div th:replace="fragments/header :: header-css" />
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Accueil</title>
+
+
+<script type="text/javascript" th:src="@{/js/setting.js}"></script>
+
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+<link rel="icon" type="image/vnd.microsoft.icon"
+	th:href="@{assets/images_fn/mini_logo2.png}" />
+<!-- <link rel="stylesheet" th:href="@{/assets/css/all.css}">
+<link rel="stylesheet" th:href="@{/assets/css//w3.css}">
+<link rel="stylesheet" th:href="@{/assets/css/sidebar.css}"> -->
+<style>
+.image_remise {
+	width: 600px;
+	height: 300px;
+}
+
+tr:hover {
+	background-color: #fdd699;
+}
+</style>
+</head>
+<body>
+
+
+	<div id="main">
+		<div class="row"></div>
+
+		<div class="container remiseInfo">
+
+			<h1 class="listRemiseTitle title">Liste Users</h1>
+			<div class="row">
+				<div class="col-md-11">
+					<div class="row">
+						<div class="col-1"></div>
+						<div class="col-4"></div>
+						<div class="col-7"></div>
+					</div>
+
+					<table class="table table-bordered table-sm">
+						<thead>
+							<tr style="text-align: center">
+
+
+								<th scope="col" class="col">Is GR</th>
+								<th scope="col" class="col">Is Password Changed</th>
+								<th scope="col" class="col">Is Active</th>
+								<th scope="col" class="col">Nb Fail Password</th>
+								<th scope="col" class="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr style="text-align: center;">
+
+
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="border">
+
+									<table>
+
+										<tr>
+
+											<td class="border"><a class="btn custA"
+												data-toggle="modal" data-target="#exampleModal"> <img
+													th:src="@{/imgs/resetPass.png}" />
+											</a></td>
+
+											<td class="border"><a class="btn custA"
+												data-toggle="modal" data-target="#exampleModal"> <img
+													th:src="@{/imgs/resetPass.png}" />
+											</a></td>
+
+											<td class="border"><a class="btn custA"
+												data-toggle="modal" data-target="#exampleModal"> <img
+													th:src="@{/imgs/icons8-configuration-de-sécurité-16.png}" />
+											</a></td>
+
+
+										</tr>
+
+
+									</table> <!-- <div class="align">
+								     <a   class="btn custA"  data-toggle="modal" data-target="#exampleModal">
+										<img  th:src="@{/imgs/resetPass.png}" />
+									</a>
+								   
+								</div>
+								
+								<div class="align">
+								     <a   class="btn custA"  data-toggle="modal" data-target="#exampleModal">
+										<img  th:src="@{/imgs/resetPass.png}" />
+									</a>
+								   
+								</div>
+								
+								<div class="align">
+								     <a   class="btn custA"  data-toggle="modal" data-target="#exampleModal">
+										<img  th:src="@{/imgs/icons8-configuration-de-sécurité-16.png}" />
+									</a>
+								   
+								</div> -->
+
+
+
+
+
+
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" id="parametrageHeader">
+					<h5 class="modal-title" id="parametre">parametre</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+
+
+
+
+				<div class="modal-body">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item"><a class="nav-link " id="home-tab"
+							data-toggle="tab" href="#home" role="tab" aria-controls="home"
+							aria-selected="false">Parametre general</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+							aria-controls="profile" aria-selected="true">Parametre cheque</a></li>
+						<li class="nav-item"><a class="nav-link" id="contact-tab"
+							data-toggle="tab" href="#contact" role="tab"
+							aria-controls="contact" aria-selected="false">Parametre LCN</a></li>
+					</ul>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade  " id="home" role="tabpanel"
+							aria-labelledby="home-tab">
+
+							Parametre generall
+
+							<table class="table table-bordered table-sm" >
+								<thead>
+									<tr style="text-align: center">
+
+
+										<th scope="col" class="col">reference remise</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr style="text-align: center;" th:each="u:${users}" >
+										<form class="form-inline" th:action="@{/getParam}"
+											method="get">
+												<td th:text="${u.idUser}"> </td>
+												<td>
+													<select name="parametre" id="parametre"  >
+													    
+															<option th:each="p:${params}" th:text="${p.idParam}"></option>
+														    
+													</select>
+												</td>
+												<td></td>
+										</form>
+
+
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+						<div class="tab-pane fade show active" id="profile"
+							role="tabpanel" aria-labelledby="profile-tab">Parametre
+							cheque</div>
+						<div class="tab-pane fade" id="contact" role="tabpanel"
+							aria-labelledby="contact-tab">Parametre LCN</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary scanBtn"
+						data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary scanBtn">Save
+						changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<script th:src="@{/js/jquery.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+
+</html>

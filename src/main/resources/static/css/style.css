@@ -3,3 +3,53 @@
     width:13%;
     margin-top: 74px;
 }
+.remiseInfo{
+    height:100%;
+    width:100%;
+    border:2px solid #d68717;
+    margin-top: 25px;
+    border-radius: 10px;
+}
+.listRemiseTitle{
+    width: 152px;
+}
+ .title
+ {
+ 	margin-top: -20px;
+    margin-left: 5px;
+    background: white;
+    margin-left: 15px;
+    color: #d68717;
+    font-size: 23px;
+ }
+ .row {
+
+    margin-right: -100px!important;
+    margin-left: 0px!important;
+    margin-bottom: 15px!important;
+}
+.table-sm td, .table-sm th {
+    padding: .0rem!important;
+}
+.custA{
+	 padding: 0px!important;
+}
+.scanBtn
+{
+
+    color: #fff!important;
+    background-color: #FBB03B!important;
+    font-weight: bolder!important;
+    padding: 0.275rem .65rem!important;
+    margin-top: 10px!important;
+        border-color: transparent!important;
+
+}
+#parametrageHeader
+{
+    background-color:#d78817;
+}
+.border
+{
+	border-style: none !important;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+<div th:replace="fragments/header :: header-css" />
+<div th:replace="fragments/header :: header" />
+
+
+
+
+
+
+
+
+<body>
+
+
+	<p>add user</p>
+
+	
+
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<li class="nav-item">
+		<a class="nav-link " id="home-tab"
+			data-toggle="tab" href="#home" role="tab" aria-controls="home"
+			aria-selected="false">Home1</a></li>
+		<li class="nav-item"> 
+		<a class="nav-link active" id="profile-tab"
+			data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+			aria-selected="true">Profile1</a></li>
+		<li class="nav-item">
+		<a class="nav-link" id="contact-tab"
+			data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+			aria-selected="false">Contact1</a></li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+		<div class="tab-pane fade  " id="home" role="tabpanel"
+			aria-labelledby="home-tab">hoñe1</div>
+		<div class="tab-pane fade show active" id="profile" role="tabpanel"
+			aria-labelledby="profile-tab">hoñe2</div>
+		<div class="tab-pane fade" id="contact" role="tabpanel"
+			aria-labelledby="contact-tab">hoñe3</div>
+	</div>
+
+
+
+</body>
+
+
+
+</html>
