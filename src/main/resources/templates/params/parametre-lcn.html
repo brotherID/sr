@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+	layout:decorator="layout">
+
+<div th:fragment="content-parametre-lcn">
+
+	<h1>Parametre cheque</h1>
+
+     <form method="POST" action="updateTypeRemise">
+			<!-- récuperer  user id -->
+			<input id="userIDParametreLcn" name="userIDParametreLcn" class="userID" />
+	
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="checkboxLcn" onchange="checkboxLcnChanged()"> 
+			    <label class="form-check-label"for="checkboxLcn"> LCN </label>
+			</div>
+		
+			<table id="paramsLcnTable" style="display: none;">
+				<tr>
+					<th>type remise</th>
+					<th>case à cocher</th>
+				</tr>
+				<tr th:each="typeRemiseLCN: ${typeRemisesLCN}">
+					<td>
+						<input th:name="${typeRemiseLCN.idTypeRemise}"  th:value="${typeRemiseLCN.idTypeRemise}">
+						<span th:text="${typeRemiseLCN.type}"></span>
+					</td>
+					<td>
+						<div class="form-check">
+						    <input class="form-check-input" type="checkbox"  th:name="${typeRemiseLCN.idTypeRemise}" th:id="${typeRemiseLCN.idTypeRemise}">
+						</div>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">update</button>
+	</form>
+</div>
+
+</html>

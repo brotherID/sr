@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+	layout:decorator="layout">
+
+<div th:fragment="content-parametre-cheque">
+
+	<h1>Parametre cheque</h1>
+
+   <form method="POST" action="addTypeRemise">
+			<!-- récuperer  user id -->
+			<input id="userIDParametreCheque" name="userIDParametreCheque" class="userID" />
+			
+			<!-- récuperer  user id 2 -->
+			<!-- <input id="userIDParametreCheque2" name="userIDParametreCheque2" class="userID" th:value="${testUserId}"/> -->
+	
+			<div class="form-check">
+			<!-- stocker idTypeValeur -->
+				<!-- <input class="form-check-input"  th:checked="${hasCheque}"  type="checkbox" id="checkboxCheque" th:name="${idTypeValeur}" onchange="checkboxChequeChanged()">  -->
+			    <input class="form-check-input"   type="checkbox" id="checkboxCheque" th:name="${idTypeValeur}" onchange="checkboxChequeChanged()"> 
+			    <label class="form-check-label"for="checkboxCheque"> cheque </label>
+			</div>
+			
+			
+			<table id="paramsChequeTable"  style="display: none;">
+		    <!-- <table id="paramsChequeTable"    th:style="${hasCheque ? 'display: block' : 'display: none'}"> -->
+			
+				<tr>
+					<th>type remise</th>
+					<th>case à cocher</th>
+				</tr>
+				<tr th:each="typeRemiseCHQ: ${typeRemisesCHQ}">
+					<td>
+						<span th:text="${typeRemiseCHQ.type}"></span>
+					</td>
+					<td>
+						<div class="form-check">
+						<!-- stocker idTypeRemise -->
+						    <!-- <input class="form-check-input" type="checkbox"  th:name="${typeRemiseCHQ.idTypeRemise}" th:id="${typeRemiseCHQ.idTypeRemise}"
+						    th:checked="${#lists.contains(listIdTypeRemiseHasUser,''+typeRemiseCHQ.idTypeRemise)}"> -->
+						    <input class="form-check-input" type="checkbox"  th:name="${typeRemiseCHQ.idTypeRemise}" th:id="${typeRemiseCHQ.idTypeRemise}">
+						</div>
+					</td>
+				</tr>
+			</table>
+			<button type="submit">add</button>
+	</form> 
+	
+</div>
+
+</html>
