@@ -53,3 +53,78 @@
 {
 	border-style: none !important;
 }
+
+
+
+#checkboxCheque + label {
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+#checkboxCheque {
+  display: none;
+}
+
+#checkboxCheque + label:before {
+  content: "\2713";
+  border: 0.1em solid #000;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-left: -0.8em;
+  padding-bottom: 1.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+
+
+#checkboxCheque:checked + label:before {
+  background-color: #FBB03B!important;
+  border-color: #FBB03B!important;
+  color: #fff;
+}
+
+/* .form-check-input + label{
+  display: block;
+  margin: 1.2em;
+  cursor: pointer;
+  padding: 0.2em;
+  position: initial;
+  margin-top: 0.3rem;
+  margin-left: 1.75rem;
+}
+
+.form-check-input{
+	display: none;
+} 
+
+.form-check-input+ label:before {
+  content: "\2713";
+  border: 0.1em solid #000;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-left: -0.8em;
+  padding-bottom: 1.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+
+.form-check-input+ label :checked:before{
+	background-color: #FBB03B!important;
+    border-color: #FBB03B!important;
+    color: #fff;
+}
+
+ */
+

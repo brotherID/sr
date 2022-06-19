@@ -1,8 +1,11 @@
 package com.poc.sr.entities;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,5 +26,8 @@ public class TypeValeur {
 	
 	@Column(length = 10, name ="s_type_long")
 	private String typeLong;
+	
+	@ManyToMany(mappedBy = "typeValeurs")
+	private Collection<User> users;
 
 }

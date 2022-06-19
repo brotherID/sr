@@ -1,20 +1,19 @@
 package com.poc.sr.web.setting;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.poc.sr.dao.recruitement.request.ParamRefRemiseRepository;
+
 import com.poc.sr.dao.recruitement.request.TypeRemiseRepository;
 import com.poc.sr.dao.recruitement.request.TypeValeurRepository;
+import com.poc.sr.dao.recruitement.request.UserRepository;
 import com.poc.sr.entities.TypeRemise;
-import com.poc.sr.entities.User;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,6 +27,13 @@ public class GetTypeRemiseController {
 	@Autowired
 	public TypeValeurRepository typeValeurRepository;
 	
+	@Autowired
+	public ParamRefRemiseRepository paramRefRemiseRepository;
+
+	
+	@Autowired
+	public UserRepository userRepository;
+	
     @GetMapping("/getTypeRemise")
     public String getTypeRemise(Model model) {
     	log.info("****************start GetTypeRemiseController**********************");
@@ -38,33 +44,22 @@ public class GetTypeRemiseController {
     	
     	
     	//select table User
-        List<User> users= new ArrayList<User>();
-		
-		users.add(new User("user-id-1", "user 1", "password1") );
-		
-		users.add(new User("user-id-2", "user 2", "password2") );
-		
-		model.addAttribute("users", users);
-    	
-    	
-		
-    	
- 
-    	
+    	model.addAttribute("users", userRepository.findAll());
     	// select table TypeRemise
 		List<TypeRemise> TypeRemisesCHQ = typeRemiseRepository.findAllByType("LCN");
 		List<TypeRemise> TypeRemisesLCN = typeRemiseRepository.findAllByType("CHQ");
 		model.addAttribute("typeRemisesCHQ", TypeRemisesCHQ);
 		model.addAttribute("typeRemisesLCN", TypeRemisesLCN);
 		
-		/* model.addAttribute("hasCheque", true); */
+		model.addAttribute("hasCheque", true); 
 		
 		// list checked ? if have this type remise 
+		model.addAttribute("listIdTypeRemiseHasUser",
+		Arrays.asList("011742123132","012231212312"));
+		//
+		List<String> idParamRefRemise = paramRefRemiseRepository.findByIdParamRefRemise();
+		model.addAttribute("idParamRefRemise", idParamRefRemise);
 		
-		/*
-		 * model.addAttribute("listIdTypeRemiseHasUser",
-		 * Arrays.asList("011742123132","012231212312"));
-		 */
 		
 		log.info("****************end GetTypeRemiseController****************");
     	

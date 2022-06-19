@@ -1,10 +1,12 @@
 package com.poc.sr.entities;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,6 +36,9 @@ public class TypeRemise {
 	
 	@Column(length = 64, name ="s_type_long")
 	private String typeLong;
+	
+	@ManyToMany(mappedBy = "typeRemises")
+	private Collection<User> users;
 	
 	
 

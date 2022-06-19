@@ -72,6 +72,7 @@ tr:hover {
 								</tr>
 							</tbody>
 						</table>
+						<span th:text="${idTypeValeur}">  </span>
 					<!-- <input id="userIDParametreChequeSelected" name="userIDParametreChequeSelected" class="userID"  type="text"/> -->
 				</div>
 			</div>
@@ -110,42 +111,11 @@ tr:hover {
 							aria-controls="contact" aria-selected="false">Parametre LCN</a></li>
 					</ul>
 					<div class="tab-content" id="myTabContent">
-						<div class="tab-pane fade  " id="home" role="tabpanel"
-							aria-labelledby="home-tab">
-
-							<h1>Parametre generall</h1>
-
-							<input id="userIDParametreGenerall"
-								name="userIDParametreGenerall" class="userID" />
-
-							<table class="table table-bordered table-sm">
-								<thead>
-									<tr style="text-align: center">
-
-
-										<th scope="col" class="col">reference remise</th>
-
-									</tr>
-								</thead>
-								<tbody>
-									<tr style="text-align: center;" th:each="u:${users}">
-										<form class="form-inline" th:action="@{/getParam}"
-											method="get">
-										<td th:text="${u.idUser}"></td>
-										<td><select name="parametre" id="parametre">
-
-												<option ></option>
-
-										</select></td>
-										<td></td>
-										</form>
-
-
-									</tr>
-								</tbody>
-							</table>
-
+					    <!-- begin body Parametre general -->
+						<div class="tab-pane fade  " id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div th:replace="params/general-settings :: content-general-settings" />
 						</div>
+						<!-- end body Parametre general -->
 						<!-- begin body Parametre cheque -->
 						<div class="parametreCheque tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 							     <div th:replace="params/parametre-cheque :: content-parametre-cheque" />
@@ -174,13 +144,13 @@ tr:hover {
 <script>
  
 
-   /*
+   
     $('#exampleModal').on('show.bs.modal', function () {
         $.get("/modals/modal/cheque?userId=" + $(".userID").val(), function (data) {
             $('#exampleModal').find('.modal-body .parametreCheque').html(data);
         })
     })
-    */
+    
     
 </script>
 

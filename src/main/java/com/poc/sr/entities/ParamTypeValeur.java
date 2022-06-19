@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "r_param_type_valeur")
+@Table(name = "r_param_type_valeur1")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

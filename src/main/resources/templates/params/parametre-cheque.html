@@ -9,21 +9,23 @@
 
    <form method="POST" action="addTypeRemise">
 			<!-- récuperer  user id -->
-			<input id="userIDParametreCheque" name="userIDParametreCheque" class="userID" />
+			<!-- <input id="userIDParametreCheque" name="userIDParametreCheque" class="userID" /> -->
 			
 			<!-- récuperer  user id 2 -->
-			<!-- <input id="userIDParametreCheque2" name="userIDParametreCheque2" class="userID" th:value="${testUserId}"/> -->
+			<input id="userIDParametreCheque2" name="userIDParametreCheque2" class="userID" th:value="${testUserId}"/>
 	
 			<div class="form-check">
 			<!-- stocker idTypeValeur -->
-				<!-- <input class="form-check-input"  th:checked="${hasCheque}"  type="checkbox" id="checkboxCheque" th:name="${idTypeValeur}" onchange="checkboxChequeChanged()">  -->
-			    <input class="form-check-input"   type="checkbox" id="checkboxCheque" th:name="${idTypeValeur}" onchange="checkboxChequeChanged()"> 
+			<span th:text="ghggg">  </span>
+			<span th:text="${idTypeValeur}">  </span>
+				<input class="form-check-input"  th:checked="${hasCheque}"  type="checkbox" id="checkboxCheque" th:name="${idTypeValeur}" onchange="checkboxChequeChanged()"> 
+			   <!--  <input class="form-check-input"   type="checkbox" id="checkboxCheque" th:name="${idTypeValeur}" onchange="checkboxChequeChanged()">  -->
 			    <label class="form-check-label"for="checkboxCheque"> cheque </label>
 			</div>
 			
 			
-			<table id="paramsChequeTable"  style="display: none;">
-		    <!-- <table id="paramsChequeTable"    th:style="${hasCheque ? 'display: block' : 'display: none'}"> -->
+			<!-- <table id="paramsChequeTable"  style="display: none;"> -->
+		    <table id="paramsChequeTable"    th:style="${hasCheque ? 'display: block' : 'display: none'}">
 			
 				<tr>
 					<th>type remise</th>
@@ -36,14 +38,14 @@
 					<td>
 						<div class="form-check">
 						<!-- stocker idTypeRemise -->
-						    <!-- <input class="form-check-input" type="checkbox"  th:name="${typeRemiseCHQ.idTypeRemise}" th:id="${typeRemiseCHQ.idTypeRemise}"
-						    th:checked="${#lists.contains(listIdTypeRemiseHasUser,''+typeRemiseCHQ.idTypeRemise)}"> -->
-						    <input class="form-check-input" type="checkbox"  th:name="${typeRemiseCHQ.idTypeRemise}" th:id="${typeRemiseCHQ.idTypeRemise}">
+						    <input class="form-check-input" type="checkbox"  th:name="${typeRemiseCHQ.idTypeRemise}" th:id="${typeRemiseCHQ.idTypeRemise}" th:checked="${#lists.contains(listIdTypeRemiseHasUser,''+typeRemiseCHQ.idTypeRemise)}">
+						    <!-- <input class="form-check-input" type="checkbox"  th:name="${typeRemiseCHQ.idTypeRemise}" th:id="${typeRemiseCHQ.idTypeRemise}"> -->
+						    <label></label>
 						</div>
 					</td>
 				</tr>
 			</table>
-			<button type="submit">add</button>
+			<button type="submit" class="btn btn-secondary scanBtn">add</button>
 	</form> 
 	
 </div>
